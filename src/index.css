@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * { border-color: rgba(255,255,255,0.08); }
+  body {
+    @apply bg-surface text-white antialiased font-sans;
+    background-image: radial-gradient(ellipse at 20% 50%, rgba(99,102,241,0.06) 0%, transparent 60%),
+                      radial-gradient(ellipse at 80% 10%, rgba(99,102,241,0.04) 0%, transparent 50%);
+  }
+  ::-webkit-scrollbar { width: 5px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 9999px; }
+}
+
+@layer components {
+  .glass {
+    @apply bg-surface-2 rounded-xl;
+    border: 1px solid rgba(255,255,255,0.08);
+    backdrop-filter: blur(12px);
+  }
+  .glass-sm {
+    @apply bg-surface-1 rounded-lg;
+    border: 1px solid rgba(255,255,255,0.08);
+  }
+  .btn-primary {
+    @apply bg-brand-600 hover:bg-brand-500 text-white font-medium px-5 py-2.5 rounded-lg transition-all duration-200 flex items-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+  .btn-secondary {
+    @apply bg-surface-3 hover:bg-surface-4 text-white font-medium px-5 py-2.5 rounded-lg transition-all duration-200 flex items-center gap-2;
+    border: 1px solid rgba(255,255,255,0.08);
+  }
+  .btn-ghost {
+    @apply text-white hover:bg-white/5 font-medium px-4 py-2 rounded-lg transition-all duration-200 flex items-center gap-2;
+    color: rgba(255,255,255,0.6);
+  }
+  .btn-ghost:hover { color: white; }
+  .btn-danger {
+    @apply font-medium px-4 py-2 rounded-lg transition-all duration-200 flex items-center gap-2;
+    background: rgba(239,68,68,0.1);
+    color: rgb(248,113,113);
+    border: 1px solid rgba(239,68,68,0.2);
+  }
+  .input-field {
+    @apply w-full bg-surface-1 rounded-lg px-3.5 py-2.5 text-sm text-white transition-all duration-200;
+    border: 1px solid rgba(255,255,255,0.1);
+    outline: none;
+  }
+  .input-field::placeholder { color: rgba(255,255,255,0.3); }
+  .input-field:focus {
+    border-color: rgba(99,102,241,0.5);
+    box-shadow: 0 0 0 3px rgba(99,102,241,0.1);
+  }
+  .label {
+    @apply text-xs font-medium uppercase tracking-wider mb-1.5 block;
+    color: rgba(255,255,255,0.5);
+  }
+  .badge {
+    @apply inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-medium;
+  }
+}
